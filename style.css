@@ -1,0 +1,426 @@
+/* ---------- CSS Variables (colour theme) ---------- */
+:root {
+    --veranda-blue: #6BB1AD;
+    --veranda-deep: #3F8581;
+    --sky-cloud: #A7BCBD;
+    --lychee: #EDECDB;
+    --card: #F8F7EC;
+    --dark: #1F4A4A;
+    --heading-font: "Rozha One", Georgia, serif;
+    --body-font: "Jost", Verdana, Arial, sans-serif;
+}
+
+/* ---------- Universal & element selectors ---------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--lychee);
+    color: var(--dark);
+    line-height: 1.7;
+    font-size: 17px;
+}
+
+h1, h2, h3 {
+    font-family: var(--heading-font);
+    font-weight: normal;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ---------- Header & Navigation ---------- */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 14px 40px;
+    background-color: var(--veranda-blue);
+    border-bottom: 2px solid var(--lychee);
+    box-shadow: 0 4px 12px rgba(31, 74, 74, 0.3);
+}
+
+.logo {
+    color: var(--lychee);
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    color: var(--dark);
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--lychee);
+    color: var(--dark);
+    transform: translateY(-2px);
+}
+
+nav a.active {
+    border: 2px solid var(--lychee);
+}
+
+/* ---------- Hero section ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 110px 20px;
+    color: var(--lychee);
+    background: linear-gradient(135deg, var(--veranda-blue), var(--sky-cloud));
+}
+
+
+.hero::before {
+    width: 300px;
+    height: 300px;
+    top: -120px;
+    left: -80px;
+}
+
+.hero::after {
+    width: 220px;
+    height: 220px;
+    bottom: -90px;
+    right: -50px;
+}
+
+.hero > * {
+    position: relative;
+    z-index: 1;
+}
+
+.hero.small {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, var(--veranda-blue), var(--sky-cloud));
+}
+
+.hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 0 rgba(31, 74, 74, 0.25);
+}
+
+.hero.small h1 {
+    font-size: 46px;
+}
+
+.hero p {
+    max-width: 680px;
+    margin: 0 auto 30px auto;
+    font-size: 19px;
+    color: var(--lychee);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--lychee);
+    color: var(--veranda-deep);
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: 0 4px 0 var(--veranda-blue);
+    transition: all 0.3s ease;
+}
+
+.hero .btn {
+    box-shadow: 0 4px 0 rgba(31, 74, 74, 0.4);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    background-color: #FBFAF0;
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+/* ---------- Main content ---------- */
+main {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 40px 20px 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 38px;
+    margin: 20px 0 45px 0;
+    color: var(--veranda-deep);
+}
+
+.section-title::after {
+    content: "";
+    display: block;
+    width: 90px;
+    height: 5px;
+    margin: 14px auto 0 auto;
+    background-color: var(--sky-cloud);
+    border-radius: 5px;
+}
+
+/* ---------- Grid layout ---------- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* ---------- Genre cards (homepage) ---------- */
+.genre-card {
+    background-color: var(--card);
+    padding: 35px 25px;
+    border: 3px solid var(--sky-cloud);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 8px 8px 0 var(--sky-cloud);
+    transition: all 0.3s ease;
+}
+
+.genre-card:hover {
+    transform: translate(-4px, -4px);
+    box-shadow: 12px 12px 0 var(--veranda-blue);
+    border-color: var(--veranda-blue);
+}
+
+.genre-card::before {
+    display: block;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    margin: 0 auto 18px auto;
+    font-size: 32px;
+    background-color: var(--lychee);
+    border-radius: 50%;
+}
+
+.genre-card:nth-child(1)::before { content: "\1F9E0"; }
+.genre-card:nth-child(2)::before { content: "\1F4AC"; }
+.genre-card:nth-child(3)::before { content: "\1F3DB"; }
+.genre-card:nth-child(4)::before { content: "\1F9E9"; }
+.genre-card:nth-child(5)::before { content: "\23F0"; }
+.genre-card:nth-child(6)::before { content: "\1F331"; }
+
+.genre-card h3 {
+    color: var(--veranda-deep);
+    font-size: 25px;
+    margin-bottom: 12px;
+}
+
+.genre-card p {
+    margin-bottom: 22px;
+    font-size: 16px;
+}
+
+/* ---------- Book cards (genre pages) ---------- */
+.book {
+    background-color: var(--card);
+    padding: 22px;
+    border: 3px solid var(--sky-cloud);
+    border-radius: 20px;
+    box-shadow: 0 6px 14px rgba(107, 177, 173, 0.3);
+    transition: all 0.3s ease;
+}
+
+.book:hover {
+    transform: translateY(-8px) rotate(-1deg);
+    border-color: var(--veranda-blue);
+    box-shadow: 0 14px 24px rgba(107, 177, 173, 0.5);
+}
+
+.cover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 190px;
+    padding: 18px;
+    margin-bottom: 18px;
+    text-align: center;
+    font-family: var(--heading-font);
+    font-size: 21px;
+    line-height: 1.25;
+    border-radius: 6px 16px 16px 6px;
+    border-left: 12px solid rgba(31, 74, 74, 0.35);
+    box-shadow: 5px 5px 10px rgba(31, 74, 74, 0.25);
+}
+
+/* book covers use the 3 palette colours in turn */
+.book:nth-child(3n+1) .cover {
+    background-color: var(--veranda-blue);
+    color: var(--lychee);
+}
+
+.book:nth-child(3n+2) .cover {
+    background-color: var(--sky-cloud);
+    color: var(--dark);
+}
+
+.book:nth-child(3n) .cover {
+    background-color: var(--lychee);
+    color: var(--veranda-deep);
+}
+
+.book h3 {
+    font-size: 20px;
+    margin-bottom: 6px;
+    color: var(--veranda-deep);
+}
+
+.author {
+    color: var(--veranda-deep);
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.book p {
+    font-size: 15px;
+}
+
+/* ---------- About section (article + aside) ---------- */
+.about {
+    display: flex;
+    gap: 30px;
+    margin-top: 70px;
+}
+
+.about article {
+    flex: 2;
+    background-color: var(--sky-cloud);
+    color: var(--dark);
+    padding: 35px;
+    border-radius: 20px;
+}
+
+.about aside {
+    flex: 1;
+    background-color: var(--card);
+    padding: 35px;
+    border-radius: 20px;
+    border: 3px dashed var(--veranda-blue);
+}
+
+.about h2,
+.about h3 {
+    margin-bottom: 14px;
+}
+
+.about article h2 {
+    color: var(--lychee);
+    font-size: 32px;
+    text-shadow: 2px 2px 0 rgba(31, 74, 74, 0.25);
+}
+
+.about aside h3 {
+    color: var(--veranda-deep);
+    font-size: 26px;
+}
+
+.about ul,
+.about ol {
+    margin-left: 22px;
+}
+
+.about li {
+    margin-bottom: 6px;
+}
+
+/* ---------- Back link & footer ---------- */
+.back {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.back a {
+    display: inline-block;
+    padding: 10px 26px;
+    color: var(--veranda-deep);
+    font-weight: 600;
+    border: 3px solid var(--sky-cloud);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.back a:hover {
+    background-color: var(--veranda-blue);
+    border-color: var(--veranda-blue);
+    color: var(--dark);
+}
+
+footer {
+    text-align: center;
+    padding: 28px 20px;
+    background-color: var(--veranda-blue);
+    color: var(--dark);
+    border-top: 4px solid var(--lychee);
+    font-size: 15px;
+}
+
+/* ---------- Media queries (responsive) ---------- */
+/* Tablet */
+@media (max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about {
+        flex-direction: column;
+    }
+    header {
+        padding: 14px 20px;
+    }
+    .hero h1 {
+        font-size: 46px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 500px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    nav {
+        justify-content: center;
+    }
+    .hero {
+        padding: 70px 20px;
+    }
+    .hero h1 {
+        font-size: 34px;
+    }
+    .section-title {
+        font-size: 30px;
+    }
+}
